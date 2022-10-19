@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 warp = "0.3.3"
+tokio = "1.21.2"
