@@ -14,4 +14,4 @@ async fn main() {
 
 async fn health_handler() -> Result<impl Reply> {
     Ok("OK")
-} 
+}
