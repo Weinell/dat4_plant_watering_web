@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  rust-backend:
+    build: ./rust-backend
+    volumes:
+      - ./rust-backend:/usr/src/app
+    ports:
+      - "8000:8000"
