@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Backend Rust
-        uses: actions/checkout@v3
+        uses: appleboy/ssh-action@master
         with: 
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
