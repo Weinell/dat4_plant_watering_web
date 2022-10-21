@@ -1,8 +1,8 @@
 name: Rust-deploy
 
-#on:
-#  push:
-#    branches: [ "main" ]
+on:
+  push:
+    branches: [ "main" ]
 
 env:
   CARGO_TERM_COLOR: always
@@ -22,8 +22,7 @@ jobs:
     - name: Run tests
       run: cargo test --verbose
 
-  deploy:
-    runs-on: ubuntu-latest
+
     steps:
       - name: Deploy Backend Rust
         uses: appleboy/ssh-action@master
