@@ -23,8 +23,8 @@ jobs:
 
   debug:
     run: echo ${{secrets.SSH_HOST}}
-    run: ${{secrets.SSH_KEY}}
-    run: ${{secrets.SSH_USERNAME}}
+    run: echo ${{secrets.SSH_KEY}}
+    run: echo ${{secrets.SSH_USERNAME}}
 
 
   deploy:
