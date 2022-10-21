@@ -23,7 +23,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    #needs: build
     steps:
       - name: Deploy Backend Rust
         uses: appleboy/ssh-action@master
