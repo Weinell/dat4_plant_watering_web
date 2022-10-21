@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Debug
         run: echo ${{secrets.SSH_HOST}} ${{secrets.SSH_KEY}} ${{secrets.SSH_USERNAME}}
-    steps:
+
       - name: Deploy Backend Rust
         uses: appleboy/ssh-action@master
         with: 
