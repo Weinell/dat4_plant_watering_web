@@ -21,21 +21,13 @@ jobs:
     - name: Run tests
       run: cargo test --verbose
 
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Debug
-        uses:
-          script:
-          - echo -e 
-              "echo ${{secrets.SSH_HOST}}
-              echo ${{secrets.SSH_KEY}}
-              echo ${{secrets.SSH_USERNAME}}"
-
 
   deploy:
     runs-on: ubuntu-latest
     #needs: build
+    steps:
+      - name: Debug
+        run: echo ${{secrets.SSH_HOST}} ${{secrets.SSH_KEY}} ${{secrets.SSH_USERNAME}}
     steps:
       - name: Deploy Backend Rust
         uses: appleboy/ssh-action@master
