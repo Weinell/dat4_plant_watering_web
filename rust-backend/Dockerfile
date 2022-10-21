@@ -19,5 +19,5 @@ EXPOSE 8000
 
 WORKDIR /usr/src/app
 
-CMD ["./target/release/rust-backend"]
-#CMD ["./rust-backend"]
+#CMD ["./target/release/rust-backend"]
+CMD ["cargo run --release","rust-backend"]
