@@ -26,11 +26,11 @@ jobs:
     steps:
       - name: Debug
         uses:
-          run: 
-            | 
-            echo ${{secrets.SSH_HOST}}
-            echo ${{secrets.SSH_KEY}}
-            echo ${{secrets.SSH_USERNAME}}
+          script:
+          - echo -e 
+              "echo ${{secrets.SSH_HOST}}
+              echo ${{secrets.SSH_KEY}}
+              echo ${{secrets.SSH_USERNAME}}"
 
 
   deploy:
