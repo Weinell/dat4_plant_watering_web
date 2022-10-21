@@ -22,9 +22,11 @@ jobs:
       run: cargo test --verbose
 
   debug:
-    run: echo ${{secrets.SSH_HOST}}
-    run: echo ${{secrets.SSH_KEY}}
-    run: echo ${{secrets.SSH_USERNAME}}
+    run: 
+      | 
+        echo ${{secrets.SSH_HOST}}
+        echo ${{secrets.SSH_KEY}}
+        echo ${{secrets.SSH_USERNAME}}
 
 
   deploy:
