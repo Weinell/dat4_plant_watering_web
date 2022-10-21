@@ -31,5 +31,7 @@ jobs:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
-          
+        
+        run: cargo run --release
+
 
