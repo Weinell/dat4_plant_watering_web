@@ -22,6 +22,7 @@ jobs:
       run: cargo test --verbose
 
   deploy:
+    runs-on: ubuntu-latest
     depends_on:
     - build
     steps:
