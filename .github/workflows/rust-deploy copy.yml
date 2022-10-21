@@ -9,7 +9,6 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -22,7 +21,9 @@ jobs:
     - name: Run tests
       run: cargo test --verbose
 
-
+  deploy:
+    depends_on:
+    - build
     steps:
       - name: Deploy Backend Rust
         uses: appleboy/ssh-action@master
