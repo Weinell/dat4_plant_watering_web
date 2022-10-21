@@ -23,7 +23,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    depends_on:
+    depends-on:
     - build
     steps:
       - name: Deploy Backend Rust
