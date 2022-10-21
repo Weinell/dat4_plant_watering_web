@@ -22,11 +22,14 @@ jobs:
       run: cargo test --verbose
 
   debug:
-    run: 
-      | 
-        echo ${{secrets.SSH_HOST}}
-        echo ${{secrets.SSH_KEY}}
-        echo ${{secrets.SSH_USERNAME}}
+    steps:
+      - name: Debug
+        uses:
+          run: 
+            | 
+            echo ${{secrets.SSH_HOST}}
+            echo ${{secrets.SSH_KEY}}
+            echo ${{secrets.SSH_USERNAME}}
 
 
   deploy:
