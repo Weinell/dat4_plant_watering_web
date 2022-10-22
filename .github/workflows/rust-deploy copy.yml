@@ -33,12 +33,12 @@ jobs:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
-      
-      - name: Docker Compose
-        - uses: actions/checkout@v3
-        - uses: isbang/compose-action@v1.3.2
-            with:
-              compose-file: "./docker-compose.yml"
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Compose
+        uses: isbang/compose-action@v1.3.2
+          with:
+            compose-file: "./docker-compose.yml"
           
 
         
