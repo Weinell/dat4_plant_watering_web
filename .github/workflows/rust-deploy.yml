@@ -30,18 +30,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: SSH Connection
-        uses: appleboy/ssh-action@master
-        with: 
-          host: ${{secrets.SSH_HOST}}
-          key: ${{secrets.SSH_KEY}}
-          username: ${{secrets.SSH_USERNAME}}
-          script: |
-            docker-compose up -d
-            whoami     
-          
+    - uses: actions/checkout@v3
+
+    - uses: alex-ac/github-action-ssh-docker-compose@master
+      name: Docker-Compose Remote Deployment
+      with: 
+        ssh_host: ${{secrets.SSH_HOST}}
+        ssh_private_key: ${{secrets.SSH_KEY}}
+        ssh_user: ${{secrets.SSH_USERNAME}}
+        docker_compose_prefix: rust-backend  
+        
 
         
 
