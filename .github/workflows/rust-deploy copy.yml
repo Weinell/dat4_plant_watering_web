@@ -39,7 +39,7 @@ jobs:
         uses: isbang/compose-action@v1.3.2
         with:
           compose-file: "./docker-compose.yml"
-          run: docker-compose up -d
+          run: docker-compose -f "docker-compose.yml up -d --build"
           
 
         
