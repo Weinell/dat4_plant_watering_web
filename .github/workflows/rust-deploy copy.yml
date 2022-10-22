@@ -11,6 +11,7 @@ env:
 
 jobs:
   test:
+
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -25,7 +26,9 @@ jobs:
 
 
   deploy:
+
     runs-on: ubuntu-latest
+
     steps:
       - name: SSH Connection
         uses: appleboy/ssh-action@master
@@ -40,6 +43,7 @@ jobs:
         with:
           compose-file: "./docker-compose.yml"
           run: docker-compose -f "docker-compose.yml up -d --build"
+          script: whoami
           
 
         
