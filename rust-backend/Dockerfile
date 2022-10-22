@@ -1,23 +1,44 @@
+# Stage 1
+FROM rust:1.64.0 AS planner
+
+WORKDIR /app
+
+RUN cargo install cargo-chef
+
+COPY . .
+
+RUN cargo chef prepare --recipe-path recipe.json
+
+
+# Stage 2
+FROM rust:1.64.0 AS cacher
+
+WORKDIR /app
+
+RUN cargo install cargo-chef
+
+COPY --from=planner /app/recipe.json recipe.json
+
+RUN cargo chef cook --release --recipe-path recipe.json
+
+
+# Stage 3
 FROM rust:1.64.0 AS builder
 
-RUN USER=root cargo new --bin rust-backend
-WORKDIR ./rust-backend
-COPY ./Cargo.toml ./Cargo.toml
+COPY . /app
+WORKDIR /app
+
+COPY --from=cacher /app/target target
+COPY --from=cacher /usr/local/cargo  /usr/local/cargo
+
 RUN cargo build --release
-RUN rm src/*.rs
-
-ADD . ./
-
-RUN rm ./target/release/deps/rust_backend*
-RUN cargo build --release
-
 
 FROM debian:buster-slim
-COPY --from=builder /rust-backend/target/release/rust-backend /usr/src/app/rust-backend
+COPY --from=builder /app/target/release/rust-backend /app
 
-EXPOSE 8000
+EXPOSE 8080
 
-WORKDIR /usr/src/app
+#WORKDIR /app
 
-#CMD ["./target/release/rust-backend"]
-CMD ["cargo run --release","rust-backend"]
+ENTRYPOINT ["./app"]
+#ENTRYPOINT ["./app/rust-backend"]
