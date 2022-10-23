@@ -4,7 +4,7 @@ type Result<T> = std::result::Result<T, Rejection>;
 
 #[tokio::main]
 async fn main() {
-    let health_route = warp::path!("").and_then(health_handler);
+    let health_route = warp::path!("/").and_then(health_handler);
 
     let routes = health_route.with(warp::cors().allow_any_origin());
 
