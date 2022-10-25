@@ -6,4 +6,4 @@ services:
     volumes:
       - ./rust-backend:/usr/src/app
     ports:
-      - "8000:80"
+      - "3000:3000"
