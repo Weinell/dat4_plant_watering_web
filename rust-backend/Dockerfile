@@ -36,7 +36,7 @@ RUN cargo build --release
 FROM debian:buster-slim
 COPY --from=builder /app/target/release/rust-backend /app
 
-EXPOSE 8080
+EXPOSE 8000
 
 #WORKDIR /app
 
