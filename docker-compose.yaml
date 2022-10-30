@@ -1,6 +1,10 @@
 version: '3'
 
 services:
+  web:
+      image: nginx:latest
+      ports:
+          - "80:80"
   rust-backend:
     build: ./rust-backend
     volumes:
@@ -8,7 +12,4 @@ services:
     ports:
       - "3000:3000"
 
-  web:
-      image: nginx:latest
-      ports:
-          - "80:80"
+  
