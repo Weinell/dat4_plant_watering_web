@@ -13,13 +13,14 @@ services:
       - "80:80"
 
   next-frontend:
-    build: ./frontend
+    build: ./next-frontend
     container_name: frontend
+    volumes:
+      - ./next-frontend
     depends_on:
       - rust-backend
     ports:
       - "8080:80"
-    
 
   rust-backend:
     build: ./rust-backend
