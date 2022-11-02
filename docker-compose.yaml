@@ -12,9 +12,15 @@ services:
     ports:
       - "80:80"
 
+  next-frontend:
+    build: ./frontend
+    depends_on:
+      - rust-backend
+    
+
   rust-backend:
     build: ./rust-backend
     volumes:
       - ./rust-backend:/usr/src/app
     ports:
-      - "3000:3000"
+      - "5000:5000"

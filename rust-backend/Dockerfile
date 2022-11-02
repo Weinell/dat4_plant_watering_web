@@ -36,8 +36,7 @@ RUN cargo build --release
 FROM debian:buster-slim
 COPY --from=builder /app/target/release/rust-backend /app
 
-EXPOSE 3000
+EXPOSE 5000
 
 
 ENTRYPOINT ["./app"]
-
