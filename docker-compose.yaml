@@ -16,6 +16,8 @@ services:
     build: ./frontend
     depends_on:
       - rust-backend
+    ports:
+      - "8080:80"
     
 
   rust-backend:
