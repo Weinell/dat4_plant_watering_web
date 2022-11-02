@@ -16,7 +16,7 @@ services:
     build: ./next-frontend
     container_name: frontend
     volumes:
-      - ./next-frontend
+      - ./next-frontend:/usr/src/app
     depends_on:
       - rust-backend
     ports:
@@ -28,4 +28,4 @@ services:
     volumes:
       - ./rust-backend:/usr/src/app
     ports:
-      - "5000:5000"
+      - "5001:5000"
