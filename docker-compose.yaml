@@ -31,5 +31,6 @@ services:
       - "5000:5000"
 
 networks:
-  frontend: traefik-setup_default
-  backend: traefik-setup_default
+  default:
+    name: traefik-setup_default
+    external: true
