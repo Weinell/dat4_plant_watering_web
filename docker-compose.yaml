@@ -29,3 +29,7 @@ services:
       - ./rust-backend:/usr/src/app
     ports:
       - "5000:5000"
+
+networks:
+  frontend: traefik-setup_default
+  backend: traefik-setup_default
