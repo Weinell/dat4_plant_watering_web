@@ -56,4 +56,9 @@ EXPOSE 3000
 
 ENV PORT 3000
 
+LABEL traefik.enable="true"
+LABEL traefik.http.routers.frontend.entrypoints="websecure"
+LABEL traefik.http.routers.frontend.tls="true"
+LABEL traefik.http.routers.frontend.tls.certresolver="production"
+
 CMD ["node", "server.js"]
