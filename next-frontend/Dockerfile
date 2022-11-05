@@ -56,6 +56,7 @@ USER nextjs
 ENV PORT 3000
 
 LABEL traefik.enable="true"
+LABEL traefik.http.routers.frontend.rule=Host(`weinell.dk`)
 LABEL traefik.http.routers.frontend.entrypoints="web,websecure"
 LABEL traefik.http.routers.frontend.tls="true"
 LABEL traefik.http.routers.frontend.tls.certresolver="production"
