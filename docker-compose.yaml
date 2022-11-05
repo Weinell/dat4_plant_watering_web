@@ -2,16 +2,6 @@ version: '3'
 
 services:
 
-  #reverse-proxy:
-  #  image: nginx:latest
-  #  container_name: reverse-proxy
-  #  depends_on:
-  #    - rust-backend
-  #    - next-frontend
-  #  ports:
-  #    - "80:80"
-  #    - "443:443"
-
   next-frontend:
     build: ./next-frontend
     container_name: frontend
@@ -27,6 +17,11 @@ services:
       - ./rust-backend:/usr/src/app
     ports:
       - "5000:5000"
+
+  sqlite:
+    image: nouchka/sqlite3:latest
+    volumes:
+      - ./db/:/root/db/
 
 networks:
   default:
