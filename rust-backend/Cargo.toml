@@ -8,6 +8,6 @@ edition = "2021"
 [dependencies]
 axum = "0.5.17"
 tokio = { version = "1.21.2", features = ["full"] }
-redis = "0.22.1"
+redis = { version = "0.22.1", features = ["tokio-comp"] }
 env_logger = "0.9.1"
 log = "0.4.17"
