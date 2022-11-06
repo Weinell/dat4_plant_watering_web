@@ -13,6 +13,8 @@ services:
   rust-backend:
     build: ./rust-backend
     container_name: backend
+    depends_on:
+      - sqlite
     volumes:
       - ./rust-backend:/usr/src/app
     ports:
