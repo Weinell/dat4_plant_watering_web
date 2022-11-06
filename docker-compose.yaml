@@ -14,19 +14,19 @@ services:
     build: ./rust-backend
     container_name: backend
     depends_on:
-      - sqlite
+      - redis
     volumes:
       - ./rust-backend:/usr/src/app
     ports:
       - "5000:5000"
 
-  sqlite:
-    image: nouchka/sqlite3:latest
-    container_name: sqlite
-    stdin_open: true
-    tty: true
+  redis:
+    image: redis:7.0-alpine
+    container_name: redis
     volumes:
       - ./db/:/root/db/
+    ports:
+      - "6379:6379"
 
 networks:
   default:
